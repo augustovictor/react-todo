@@ -1,5 +1,28 @@
 import React from 'react';
 
+const todos = [
+    {
+        task: 'Make react tutorial',
+        done: false
+    },
+    {
+        task: 'Go to gym',
+        done: false
+    },
+    {
+        task: 'Bake a cake',
+        done: true
+    },
+    {
+        task: 'Walk the dog',
+        done: false
+    },
+    {
+        task: 'Do the dishes',
+        done: false
+    }
+];
+
 export default class App extends React.Component {
     render() {
         return(
@@ -9,5 +32,3 @@ export default class App extends React.Component {
         );
     }
 }
-
-module.exports = App;
