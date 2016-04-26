@@ -1,3 +1,7 @@
-let message = 'Hello from entry!ts';
+import React from 'react';
+import {render} from 'react-dom';
 
-console.log( message );
+import App from './components/app';
+
+
+render(<App />, document.getElementById('app'));
