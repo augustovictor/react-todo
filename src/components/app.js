@@ -39,9 +39,17 @@ export default class App extends React.Component {
         return(
             <div>
                 <h1> React todos app </h1>
-                <CreateTodoForm />
+                <CreateTodoForm createTask={this.createTask.bind(this)}/>
                 <TodoList todos={this.state.todos} />
             </div>
         );
+    }
+
+    createTask(task) {
+        this.state.todos.push({
+            task,
+            done: false
+        });
+        this.setState({todos: this.state.todos});
     }
 }
