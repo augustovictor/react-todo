@@ -6,7 +6,8 @@ import TodoListItem from './todo-list-item';
 export default class Todos extends React.Component {
 
     renderItems() {
-        return _.map(this.props.todos, (todo, index) => <TodoListItem key={index} {...todo }/>);
+        const props = _.omit(this.props, 'todos');
+        return _.map(this.props.todos, (todo, index) => <TodoListItem key={index} {...todo } {...props}/>);
         // {...todo} = task={todo.task} done={task.done}
     };
 

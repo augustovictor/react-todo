@@ -9,22 +9,6 @@ export default class TodoListItem extends React.Component {
         }
     }
 
-    renderActionsSection() {
-        if(this.state.isEditing) {
-            return (
-                <td>
-                    <button> Save </button>
-                    <button onClick={this.onCancelClick.bind(this)}> Cancel </button>
-                </td>
-            );
-        }
-        return (
-            <td>
-                <button onClick={this.onEditClick.bind(this)}> Edit </button>
-                <button> Delete </button>
-            </td>
-        );
-    }
 
     renderTaskSection() {
         const { task, done } = this.props;
@@ -35,7 +19,10 @@ export default class TodoListItem extends React.Component {
         };
 
         return (
-            <td style={taskStyle}>{task}</td>
+            <td style={taskStyle}
+                onClick={this.props.toggleTask.bind(this, task)}>
+                {task}
+            </td>
         );
     }
 
@@ -45,6 +32,23 @@ export default class TodoListItem extends React.Component {
                 {this.renderTaskSection()}
                 {this.renderActionsSection()}
             </tr>
+        );
+    }
+
+    renderActionsSection() {
+        if(this.state.isEditing) {
+            return (
+                <td>
+                <button> Save </button>
+                <button onClick={this.onCancelClick.bind(this)}> Cancel </button>
+                </td>
+            );
+        }
+        return (
+            <td>
+            <button onClick={this.onEditClick.bind(this)}> Edit </button>
+            <button> Delete </button>
+            </td>
         );
     }
 
