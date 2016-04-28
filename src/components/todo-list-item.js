@@ -26,10 +26,23 @@ export default class TodoListItem extends React.Component {
         );
     }
 
+    renderTaskSection() {
+        const { task, done } = this.props;
+
+        const taskStyle = {
+            color: done ? 'green' : 'red',
+            cursor: 'pointer'
+        };
+
+        return (
+            <td style={taskStyle}>{task}</td>
+        );
+    }
+
     render() {
         return(
             <tr>
-                <td>{this.props.task}</td>
+                {this.renderTaskSection()}
                 {this.renderActionsSection()}
             </tr>
         );
